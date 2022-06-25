@@ -131,7 +131,8 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = BASE_DIR / 'media'         # 'data' is my media folder
-STATIC_ROOT = BASE_DIR / 'staticfiles'         # 'data' is my media folder
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 MEDIA_URL = '/media/'
 
 # django Authentication and Autherization
