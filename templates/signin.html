@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<div class="container shadow p-4 mx-auto my-2" style="background-color: rgb(197, 221, 243);">
+    <div class="resitereration">
+        <label class="fs-2 fw-bold text-info " for="">Fill the form to create account </label>
+    </div>
+    <hr>
+    <form action="" class="fs-2 p-3" method="post">
+        {% csrf_token %}
+            <div class="form-row mt-3">
+                <div class="form-group col-md-12">
+                    <label class="col-sm-5 col-form-label fw-bold">{{form.username.label}} :-</label>
+                    {{form.username}}
+                </div>
+            </div>
+            <div class="form-row mt-3">
+                <div class="form-group col-md-12">
+                    <label class="col-sm-5 col-form-label fw-bold">{{form.email.label}} :-</label>
+                    {{form.email}}
+                </div>
+            </div>
+            <div class="form-row mt-3">
+                <div class="form-group col-md-12">
+                    <label class="col-sm-5 col-form-label fw-bold">{{form.password1.label}} :-</label>
+                    {{form.password1}}
+                </div>
+            </div>
+            <div class="form-row mt-3">
+                <div class="form-group col-md-12">
+                    <label class="col-sm-5 col-form-label fw-bold">{{form.password2.label}} :-</label>
+                    {{form.password2}}
+                </div>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radio" id="inlineRadio1" value="creator">
+                <label class="form-check-label" for="inlineRadio1">Creator</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radio" id="inlineRadio2" value="reader">
+                <label class="form-check-label" for="inlineRadio2">Reader</label>
+              </div>
+        <input type="submit" class="btn btn-outline-success w-100 p-2 mt-2" value="Create User">
+    </form>
+    <h6 class="my-2 p-2">Already have an account <a href="">:- Login Here</a></h6>
+</div>
+
+{% endblock body %}

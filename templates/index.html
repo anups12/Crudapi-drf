@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<div class="row">
+  <div class="col-2 ">
+    <div class="container px-4 py-5  my-2 rounded-5" id="custom-cards">
+      <h3>Enrolled Courses </h3>
+      <table class="table  table-striped table-hover">
+        <tr>
+          <th>Courses</th>
+        </tr>
+        {% for c in enroll %}
+        <tr>
+          <td><a class="btn" href="{% url 'course' c.id %}">{{c.courses}}</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+  <div class="col-9">
+    <h2 class="pb-2 border-bottom">Available courses</h2>
+    <div class="row row-cols-1  row-cols-lg-3 align-items-stretch g-4 py-5">
+      {% for course in courses %}
+      <div class="col">
+        <a class="text-light" href="{% url 'course' course.id %}" style="text-decoration: none;">
+          <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
+          style="background-image: url('{{course.image.url}}'); background-position: center; background-size: cover; background-repeat: no-repeat; background-blend-mode: soft-light;">
+          <h7 class="mx-3 text-danger">Created by <strong> @{{ course.user }}</strong></h7>
+            <div class="d-flex flex-column h-100 p-5 pb-2 text-white text-shadow-1">
+              <h2 class="pt-5 mb-4 display-6 " style="overflow-y: hidden; height:150px;">
+                {{course.name}}</h2>
+              <ul class="d-flex list-unstyled mt-auto">
+                <li class="me-auto ">
+                  <img src="{{course.image.url}}" alt="no" class="rounded-circle border border-white" width="32"
+                    height="32">
+                </li>
+                <li class="d-flex mx-1 ">
+                  <small>{{course.title}}</small>
+                </li>
+              </ul>
+              {% if request.user.creator == course.user %}
+                  <div>
+                    <a class="btn btn-outline-info btn-sm px-3 py-1" href="{% url 'edit_course' course.id %}">Edit</a>
+                  </div>
+                  {% endif %}
+            </div>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+</div>
+
+{% endblock body %}

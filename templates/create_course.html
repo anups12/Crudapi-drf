@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<div class="container shadow p-4 mx-auto my-2" style="background-color: rgb(197, 221, 243);">
+    <div class="resitereration">
+        <label class="fs-2 fw-bold text-success " for="">Fill the form to create Course </label>
+    </div>
+    <hr>
+    <form action="" class="fs-2 p-3" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+            <div class="form-row mt-3">
+                <div class="form-group col-md-12">
+                    <label class="col-sm-5 col-form-label fw-bold">{{form.name.label}} :-</label>
+                    {{form.name}}
+                </div>
+            </div>
+            <div class="form-row mt-3">
+                <div class="form-group col-md-12">
+                    <label class="col-sm-5 col-form-label fw-bold">{{form.description.label}} :-</label>
+                   <pre>
+                       {{form.description}}
+                   </pre> 
+                </div>
+            </div>
+            <div class="form-row mt-3">
+                <div class="form-group col-md-12">
+                    <label class="col-sm-5 col-form-label fw-bold">{{form.title.label}} :-</label>
+                    {{form.title}}
+                </div>
+            </div>
+            <div class="form-row mt-3">
+                <div class="form-group col-md-12">
+                    <label class="col-sm-5 col-form-label fw-bold">{{form.image.label}} :-</label>
+                    {{form.image}}
+                </div>
+            </div>
+           
+        <input type="submit" class="btn btn-outline-success w-100 p-2 mt-2" value="Create Course">
+    </form>
+</div>
+
+
+
+{% endblock body %}
