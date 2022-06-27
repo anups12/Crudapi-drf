@@ -24,3 +24,13 @@ In installed apps add
     'crudapi',
     'rest_framework',
     'knox',
+
+
+To to crud operations 
+https://crudapi-drf.herokuapp.com/api/
+
+for Registeration
+https://crudapi-drf.herokuapp.com/api/register/
+
+for login
+https://crudapi-drf.herokuapp.com/api/login
